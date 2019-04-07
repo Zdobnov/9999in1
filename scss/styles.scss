@@ -74,7 +74,6 @@ $color-screen-glow-12: #198DF3;
     position: relative;
     z-index: 10;
     animation-duration: $animation-duration-glowing;
-    animation-name: screen-glowing;
     animation-timing-function: steps(1, end);
     overflow: hidden;
     background: $color-black;
@@ -82,6 +81,10 @@ $color-screen-glow-12: #198DF3;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &.glowing {
+      animation-name: screen-glowing;
+    }
 
     video {
       position: absolute;
