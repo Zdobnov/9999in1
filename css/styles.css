@@ -1,0 +1,225 @@
+.scene {
+  background: #424242;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column; }
+
+.wall {
+  flex: 1 1 100%;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center; }
+
+.tv {
+  width: 40vw;
+  height: 22.5vw;
+  border: 6px solid #282828;
+  position: relative;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4); }
+  .tv:before {
+    content: '';
+    width: 8px;
+    height: 2px;
+    background: #0099ff;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px 6px rgba(0, 53, 255, 0.4); }
+  .tv:after {
+    content: 'SONY';
+    color: white;
+    font-size: 6px;
+    display: block;
+    text-align: center; }
+  .tv__screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    animation-duration: 92.206s;
+    animation-name: screen-glowing;
+    animation-timing-function: steps(1, end);
+    overflow: hidden;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .tv__screen video {
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+    .tv__screen span {
+      font-family: sans-serif; }
+
+.equipment {
+  margin-top: 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .equipment__shelf {
+    background: #282828;
+    height: 8px;
+    width: 200px;
+    position: relative; }
+    .equipment__shelf:after {
+      content: '';
+      height: 24px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      left: 0;
+      top: 4px;
+      filter: blur(4px); }
+
+.ps {
+  height: 18px;
+  width: 120px;
+  background: #cccccc;
+  position: relative; }
+  .ps:before {
+    content: '';
+    position: absolute;
+    height: 4vw;
+    width: 4px;
+    left: 20px;
+    bottom: 18px;
+    border-left: 2px solid #282828;
+    border-right: 2px solid #282828; }
+  .ps .ps__top, .ps .ps__mid {
+    height: 4px;
+    border-bottom: 2px solid #000000; }
+  .ps__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6px; }
+    .ps__top span {
+      color: #000000;
+      font-size: 5px; }
+  .ps__mid {
+    position: relative; }
+    .ps__mid:before {
+      content: '';
+      background: #0099ff;
+      position: absolute;
+      bottom: 0;
+      left: 6px;
+      width: 40px;
+      height: 1px;
+      box-shadow: 0 0 10px 4px rgba(0, 53, 255, 0.4); }
+    .ps__mid:after {
+      content: '';
+      background: #000000;
+      position: absolute;
+      bottom: 0;
+      right: 6px;
+      width: 20px;
+      height: 1px; }
+
+.joystick {
+  position: absolute;
+  width: 60px;
+  height: 18px;
+  right: -36px;
+  bottom: 10px;
+  transform: rotate(25deg); }
+  .joystick__base {
+    width: 50px;
+    height: 10px;
+    background: #cccccc;
+    margin: 0 auto;
+    position: relative; }
+    .joystick__base:before, .joystick__base:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      width: 10px;
+      background: #282828;
+      height: 2px; }
+    .joystick__base:before {
+      left: 2px; }
+    .joystick__base:after {
+      right: 2px; }
+  .joystick__bar {
+    height: 100%;
+    width: 14px;
+    background: #cccccc;
+    border-radius: 7px;
+    position: absolute;
+    top: 0; }
+    .joystick__bar--left:before, .joystick__bar--right:before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #cccccc;
+      top: -5px;
+      border-radius: 0 0 5px 5px;
+      border: 1px solid #b3b3b3;
+      border-top: 3px solid #282828; }
+    .joystick__bar--left {
+      left: 3px;
+      transform: rotate(30deg); }
+      .joystick__bar--left:before {
+        transform: rotate(-30deg);
+        left: 6px; }
+    .joystick__bar--right {
+      right: 3px;
+      transform: rotate(-30deg); }
+      .joystick__bar--right:before {
+        transform: rotate(30deg);
+        right: 6px; }
+  .joystick__controls {
+    width: 4px;
+    height: 2px;
+    position: absolute;
+    background: #000000;
+    z-index: 1;
+    left: 50%;
+    margin: 0 0 0 -2px;
+    top: 1px; }
+    .joystick__controls:after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 2px;
+      background: #000000;
+      top: 4px;
+      margin-left: -1px; }
+
+@keyframes screen-glowing {
+  0% {
+    box-shadow: 0 0 400px #2130C4; }
+  6.6% {
+    box-shadow: 0 0 400px #1247C3; }
+  12.85% {
+    box-shadow: 0 0 400px #003BD2; }
+  19.1% {
+    box-shadow: 0 0 400px #287AFB; }
+  25.4% {
+    box-shadow: 0 0 400px #1990FA; }
+  37.8% {
+    box-shadow: 0 0 400px #FB5088; }
+  44% {
+    box-shadow: 0 0 400px #F45C30; }
+  50.3% {
+    box-shadow: 0 0 400px #CE2300; }
+  56.5% {
+    box-shadow: 0 0 400px #6915CD; }
+  69% {
+    box-shadow: 0 0 400px #1215A1; }
+  81.5% {
+    box-shadow: 0 0 400px #153a5e; }
+  87.5% {
+    box-shadow: 0 0 400px #1215A1; }
+  94% {
+    box-shadow: 0 0 400px #198DF3; }
+  100% {
+    box-shadow: none; } }

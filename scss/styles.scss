@@ -1,0 +1,331 @@
+$color_dark_plastic: #282828;
+$color_wall: #424242;
+$color_ps: #cccccc;
+$color_black: #000000;
+$color_white: #ffffff;
+$color_button_light: #0099ff;
+
+// ANIMATION
+$animation-duration-glowing: 92.206s;
+
+$color-screen-glow-1: #2130C4;
+$color-screen-glow-2: #1247C3;
+$color-screen-glow-3: #003BD2;
+$color-screen-glow-4: #287AFB;
+$color-screen-glow-5: #1990FA;
+$color-screen-glow-6: #FB5088;
+$color-screen-glow-7: #F45C30;
+$color-screen-glow-8: #CE2300;
+$color-screen-glow-9: #6915CD;
+$color-screen-glow-10: #1215A1;
+$color-screen-glow-11: #153a5e;
+$color-screen-glow-12: #198DF3;
+
+.scene {
+  background: $color_wall;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wall {
+  flex: 1 1 100%;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tv {
+  width: 40vw;
+  height: 22.5vw;
+  border: 6px solid $color_dark_plastic;
+  position: relative;
+  box-shadow: 0 0 20px 5px rgba(0,0,0, .4);
+
+  &:before {
+    content: '';
+    width: 8px;
+    height: 2px;
+    background: $color_button_light;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px 6px rgba(0, 53, 255, .4);
+  }
+
+  &:after {
+    content: 'SONY';
+    color: white;
+    font-size: 6px;
+    display: block;
+    text-align: center;
+  }
+
+  &__screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    animation-duration: $animation-duration-glowing;
+    animation-name: screen-glowing;
+    animation-timing-function: steps(1, end);
+    overflow: hidden;
+    background: $color-black;
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    video {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    span {
+      font-family: sans-serif;
+    }
+  }
+}
+
+.equipment {
+  margin-top: 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__shelf {
+    background: $color_dark_plastic;
+    height: 8px;
+    width: 200px;
+    position: relative;
+
+    &:after {
+      content: '';
+      height: 24px;
+      width: 100%;
+      background: rgba(0,0,0, .1);
+      position: absolute;
+      left: 0;
+      top: 4px;
+      filter: blur(4px);
+    }
+  }
+}
+
+.ps {
+  $ps_height: 18px;
+
+  height: $ps_height;
+  width: 120px;
+  background: $color_ps;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 4vw;
+    width: 4px;
+    left: 20px;
+    bottom: $ps_height;
+    border-left: 2px solid $color_dark_plastic;
+    border-right: 2px solid $color_dark_plastic;
+  }
+
+  %panel {
+    height: 4px;
+    border-bottom: 2px solid $color_black;
+  }
+
+  &__top, &__mid {
+    @extend %panel;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6px;
+
+    span {
+      color: $color-black;
+      font-size: 5px;
+    }
+  }
+
+  &__mid {
+    position: relative;
+
+    &:before {
+      content: '';
+      background: $color_button_light;
+      position: absolute;
+      bottom: 0;
+      left: 6px;
+      width: 40px;
+      height: 1px;
+      box-shadow: 0 0 10px 4px rgba(0, 53, 255, .4);
+    }
+
+    &:after {
+      content: '';
+      background: $color-black;
+      position: absolute;
+      bottom: 0;
+      right: 6px;
+      width: 20px;
+      height: 1px;
+    }
+  }
+}
+
+.joystick {
+  position: absolute;
+  width: 60px;
+  height: 18px;
+  right: -36px;
+  bottom: 10px;
+  transform: rotate(25deg);
+
+  &__base {
+    width: 50px;
+    height: 10px;
+    background: $color_ps;
+    margin: 0 auto;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      width: 10px;
+      background: $color_dark_plastic;
+      height: 2px;
+    }
+
+    &:before {
+      left: 2px;
+    }
+
+    &:after {
+      right: 2px;
+    }
+  }
+
+  &__bar {
+    height: 100%;
+    width: 14px;
+    background: $color_ps;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+
+    &--left,
+    &--right {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: $color_ps;
+        top: -5px;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid darken($color_ps, 10%);
+        border-top: 3px solid $color_dark_plastic;
+      }
+    }
+
+    &--left {
+      left: 3px;
+      transform: rotate(30deg);
+
+      &:before {
+        transform: rotate(-30deg);
+        left: 6px;
+      }
+    }
+
+    &--right {
+      right: 3px;
+      transform: rotate(-30deg);
+
+      &:before {
+        transform: rotate(30deg);
+        right: 6px;
+      }
+    }
+  }
+
+  &__controls {
+    width: 4px;
+    height: 2px;
+    position: absolute;
+    background: $color-black;
+    z-index: 1;
+    left: 50%;
+    margin: 0 0 0 -2px;
+    top: 1px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 2px;
+      background: $color-black;
+      top: 4px;
+      margin-left: -1px;
+    }
+  }
+}
+
+@keyframes screen-glowing {
+  0% {
+    box-shadow: 0 0 400px $color-screen-glow-1;
+  }
+  6.6% {
+    box-shadow: 0 0 400px $color-screen-glow-2;
+  }
+  12.85% {
+    box-shadow: 0 0 400px $color-screen-glow-3;
+  }
+  19.1% {
+    box-shadow: 0 0 400px $color-screen-glow-4;
+  }
+  25.4% {
+    box-shadow: 0 0 400px $color-screen-glow-5;
+  }
+  37.8% {
+    box-shadow: 0 0 400px $color-screen-glow-6;
+  }
+  44% {
+    box-shadow: 0 0 400px $color-screen-glow-7;
+  }
+  50.3% {
+    box-shadow: 0 0 400px $color-screen-glow-8;
+  }
+  56.5% {
+    box-shadow: 0 0 400px $color-screen-glow-9;
+  }
+  69% {
+    box-shadow: 0 0 400px $color-screen-glow-10;
+  }
+  81.5% {
+    box-shadow: 0 0 400px $color-screen-glow-11;
+  }
+  87.5% {
+    box-shadow: 0 0 400px $color-screen-glow-10;
+  }
+  94% {
+    box-shadow: 0 0 400px $color-screen-glow-12;
+  }
+  100% {
+    box-shadow: none;
+  }
+}

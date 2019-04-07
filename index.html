@@ -3,8 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    test
+    <div class="scene">
+      <div class="wall">
+        <div class="tv">
+          <div class="tv__screen">
+            <span>9999 in 1</span>
+            <video poster="" width="100%" muted="" autoplay="" preload="" id="video">
+              <source src="http://9999in1.ru/video.mp4" type="video/mp4">
+            </video>
+            <audio autoplay="" style="display: none;" id="audio">
+              <source src="assets/music.mp3">
+            </audio>
+          </div>
+        </div>
+        <div class="equipment">
+          <div class="ps">
+            <div class="joystick">
+              <div class="joystick__base">
+                <div class="joystick__controls"></div>
+              </div>
+              <div class="joystick__bar joystick__bar--left"></div>
+              <div class="joystick__bar joystick__bar--right"></div>
+            </div>
+            <div class="ps__top">
+              <span>SONY</span>
+              <span>PS4</span>
+            </div>
+            <div class="ps__mid"></div>
+          </div>
+          <div class="equipment__shelf"></div>
+        </div>
+      </div>
+    </div>
+
+     <script src="js/app.js" type="application/javascript"></script>
   </body>
 </html>
