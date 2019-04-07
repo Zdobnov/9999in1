@@ -16,11 +16,15 @@
   justify-content: center; }
 
 .tv {
-  width: 40vw;
-  height: 22.5vw;
+  width: 80vw;
+  height: 45vw;
   border: 6px solid #282828;
   position: relative;
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4); }
+  @media (min-width: 992px) {
+    .tv {
+      width: 40vw;
+      height: 22.5vw; } }
   .tv:before {
     content: '';
     width: 8px;
@@ -44,7 +48,6 @@
     position: relative;
     z-index: 10;
     animation-duration: 92.206s;
-    animation-name: screen-glowing;
     animation-timing-function: steps(1, end);
     overflow: hidden;
     background: #000000;
@@ -52,18 +55,48 @@
     display: flex;
     justify-content: center;
     align-items: center; }
+    .tv__screen.glowing {
+      animation-name: screen-glowing; }
     .tv__screen video {
       position: absolute;
       bottom: 0;
-      left: 0; }
-    .tv__screen span {
+      left: 0;
+      display: none; }
+    .tv__screen div {
       font-family: sans-serif; }
+      .tv__screen div.play {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 4px solid #ffffff;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: border-color .3s ease; }
+        .tv__screen div.play:before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 0 10px 18px;
+          border-color: transparent transparent transparent #ffffff;
+          left: 13px;
+          top: 9px;
+          transition: border-color .3s ease; }
+        .tv__screen div.play:hover, .tv__screen div.play:focus {
+          border-color: #0099ff; }
+          .tv__screen div.play:hover:before, .tv__screen div.play:focus:before {
+            border-left-color: #0099ff; }
 
 .equipment {
-  margin-top: 3vw;
+  margin-top: 6vw;
   display: flex;
   flex-direction: column;
   align-items: center; }
+  @media (min-width: 992px) {
+    .equipment {
+      margin-top: 3vw; } }
   .equipment__shelf {
     background: #282828;
     height: 8px;
@@ -87,12 +120,15 @@
   .ps:before {
     content: '';
     position: absolute;
-    height: 4vw;
+    height: 7vw;
     width: 4px;
     left: 20px;
     bottom: 18px;
     border-left: 2px solid #282828;
     border-right: 2px solid #282828; }
+    @media (min-width: 992px) {
+      .ps:before {
+        height: 4vw; } }
   .ps .ps__top, .ps .ps__mid {
     height: 4px;
     border-bottom: 2px solid #000000; }
